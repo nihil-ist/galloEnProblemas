@@ -1,36 +1,19 @@
 <div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid bg-image">
-      <img src="assets/background-image.jpg" alt="Background Image" class="img-fluid">
-      <!-- or -->
-      <video autoplay loop muted>
-        <source src="assets/background-video.mp4" type="video/mp4">
-      </video>
-      <!-- Menu elements -->
-      <div class="row justify-content-center">
-        <!-- Logo or title -->
-        <div class="col-md-6 text-center">
-          <img src="assets/minecraft-logo.png">
-          <h1>Help pablo</h1>
+    
+
+        <div class="text-center my-5">
+          <img src="assets/logo.png" alt="" class="logomenu">
         </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-          <ul class="nav nav-pills">
-            <!-- Navigation menu items -->
-          </ul>
+
+
+
+        <div class="text-center mb-5">
+          <button class="btnJugar btnMenu" [routerLink]="['/juego']" routerLinkActive="router-link-active" ><img src="assets/buttons/jugar0.png" alt="jugar"></button>
         </div>
-      </div>
-      <!-- Call-to-action button -->
-      <div class="row justify-content-center">
-        <div class="col-md-4 text-center">
-          <button class="btn btn-primary btn-lg" [routerLink]="['/juego']" routerLinkActive="router-link-active" >Jugar</button>
+        <div class="text-center mb-5">
+          <button class="btnOpciones btnMenu" [routerLink]="['/opciones']" routerLinkActive="router-link-active" ><img src="assets/buttons/opciones0.png" alt="opciones"></button>
         </div>
-        <div class="col-md-4 text-center">
-          <button class="btn btn-primary btn-lg" [routerLink]="['/creditos']" routerLinkActive="router-link-active">Creditos</button>
+        <div class="text-center">
+          <button class="btnCreditos btnMenu" [routerLink]="['/creditos']" routerLinkActive="router-link-active" ><img src="assets/buttons/creditos0.png" alt="creditos"></button>
         </div>
-        <div class="col-md-4 text-center">
-          <button class="btn btn-primary btn-lg" [routerLink]="['/opciones']" routerLinkActive="router-link-active">Opciones</button>
-        </div>
-      </div>
-    </div>
   </div>
