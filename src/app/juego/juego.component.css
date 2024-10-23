@@ -42,7 +42,12 @@ button, button:active {
 
 }
 
-button:active {
+button:hover {
     background-image: url('../../assets/buttons/buttonpressed.png');
+    color: #07215e;
+}
+
+button:active {
+    background-image: url('../../assets/buttons/buttonbackground.png');
     color: #07215e;
 }
