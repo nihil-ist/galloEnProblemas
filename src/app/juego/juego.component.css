@@ -1,0 +1,48 @@
+div#nombreDiv {
+    margin: 2vh;
+    color: #07215e;
+}
+
+h1 {
+    font-size: 6vw;
+}
+
+input, input:focus {
+    background: none;
+    background-image: url('../../assets/buttons/inputframe.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 80vw;
+    height: 25vw; 
+    border: none; 
+    padding: 10px;
+    color: #07215e;
+    font-size: 6vw;
+    text-align: center;
+    outline: none;
+    caret-shape: block;
+    
+}
+
+button, button:active {
+    background: none;
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30vw;
+    height: 10vw; 
+    border: none; 
+    padding: 10px;
+    color: #07215e;
+    font-size: 3vw;
+    text-align: center;
+    outline: none;
+
+}
+
+button:active {
+    background-image: url('../../assets/buttons/buttonpressed.png');
+    color: #07215e;
+}

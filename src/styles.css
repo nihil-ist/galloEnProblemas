@@ -28,9 +28,14 @@
 
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-image: url(assets/backgroundblur.png);
+    background-image: url('assets/backgroundblur.png');
     background-size: cover;
     background-position: center;
-    /* background-repeat: noo; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+* {
+    font-family: 'Minecraft';
 }
 
