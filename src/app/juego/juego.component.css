@@ -1,10 +1,18 @@
 div#nombreDiv {
     margin: 2vh;
     color: #07215e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    min-height: 100vh; /* Abarca toda la altura de la pantalla */
+    text-align: center; /* Alineación centrada del texto */
 }
 
 h1 {
     font-size: 6vw;
+    color: #898CC4;
+    -webkit-text-stroke: 0.2vw #07215e;
 }
 
 input, input:focus {
@@ -44,10 +52,29 @@ button, button:active {
 
 button:hover {
     background-image: url('../../assets/buttons/buttonpressed.png');
-    color: #07215e;
+    
 }
 
 button:active {
     background-image: url('../../assets/buttons/buttonbackground.png');
     color: #07215e;
+}
+
+h2 {
+    font-size: 4vw;
+    color: #D3003B;
+    color: white;
+    color: #FEA321;
+    -webkit-text-stroke: 0.1vw #D3003B;
+    /* -webkit-text-stroke: 0.1vw black; */
+}
+
+h2>strong {
+    color: #D3003B;
+    -webkit-text-stroke: 0.1vw #FEA321;
+}
+
+.largeButton {
+    font-size: 3vw;
+    line-height: 2.5vw;
 }

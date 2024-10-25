@@ -4,10 +4,12 @@ import { CreditosComponent } from './creditos/creditos.component';
 import { AppComponent } from './app.component';
 import { OpcionesComponent } from './opciones/opciones.component';
 import { MenuComponent } from './menu/menu.component';
+import { Juego1Component } from './juego1/juego1.component';
 
 export const routes: Routes = [
     {path:'',component:MenuComponent},
     {path: 'juego' ,component: JuegoComponent},
     {path: 'creditos' ,component: CreditosComponent},
-    {path: 'opciones' ,component: OpcionesComponent}
+    {path: 'opciones' ,component: OpcionesComponent},
+    {path: 'juego1', component: Juego1Component}
 ];
