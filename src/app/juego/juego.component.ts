@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './juego.component.css'
 })
 export class JuegoComponent {
-
 }
