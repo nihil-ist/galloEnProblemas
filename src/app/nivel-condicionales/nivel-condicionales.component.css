@@ -1,0 +1,51 @@
+/* nivel-condicionales.component.css */
+.vidas {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  
+
+  
+.gallo-imagen {
+    width: 20vw;
+    transition: opacity 0.3s ease;
+  }
+
+  p{
+    font-size: 2vw;
+    color: #07215e;
+    /* -webkit-text-stroke: 0.05vw #88a0d8; */
+  }
+
+  .hearts {
+    width: 5vw;
+  }
+
+  button, button:active {
+    background: none;
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20vw;
+    height: 10vw; 
+    border: none; 
+    padding: 10px;
+    color: #07215e;
+    font-size: 1.8vw;
+    text-align: center;
+    outline: none;
+
+}
+
+button:hover {
+    background-image: url('../../assets/buttons/buttonpressed.png');
+    
+}
+
+button:active {
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    color: #07215e;
+}
+

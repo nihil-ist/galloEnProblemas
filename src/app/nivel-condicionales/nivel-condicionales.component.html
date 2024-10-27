@@ -1,0 +1,41 @@
+<h1 class="text-center my-3">Nivel 2: Ayuda al Gallo a Tratar Pacientes</h1>
+<div class="container-fluid">
+    <div class="mb-3 text-center">
+        <p>{{ mensajeResultado }}</p>
+        <div *ngIf="indicePacienteActual!=pacientes.length">
+            <img *ngFor="let vida of [].constructor(vidas)" src="assets/heart.png" alt="Corazón" width="30" class="me-2 hearts">
+        </div>
+    </div>
+    <div class="row">
+      
+      <!-- Sección izquierda: paciente y botones de tratamiento -->
+      <div class="col-md-8 d-flex flex-column align-items-start">
+        <!-- Mostrar solo el paciente actual si hay vidas restantes y pacientes disponibles -->
+        <div class="text-center" *ngIf="vidas > 0 && indicePacienteActual < pacientes.length">
+            <img [src]="pacientes[indicePacienteActual].imagen" alt="Imagen del paciente" class="img-fluid paciente-imagen mb-3">
+            <p>Paciente {{ indicePacienteActual + 1 }} tiene {{ pacientes[indicePacienteActual].sintoma }}.</p>
+          <button class="me-2 mb-2" (click)="tratarPaciente('medicamento')">Dar Medicamento</button>
+          <button class="me-2 mb-2" (click)="tratarPaciente('líquidos')">Dar Líquidos</button>
+          <button class="mb-2" (click)="tratarPaciente('descanso')">Sugerir Descanso</button>
+        </div>
+  
+        <!-- Mostrar mensaje de fin o botón de reinicio si se completan todos los pacientes o vidas -->
+        
+
+      </div>
+  
+      <!-- Sección derecha: imagen del gallo -->
+      <div class="col-md-4 d-flex justify-content-center align-items-center text-center">
+        <img *ngIf="indicePacienteActual < pacientes.length && vidas != 0" [src]="galloImagen" alt="Gallo" class="img-fluid gallo-imagen">
+      </div>
+    </div>
+    <div *ngIf="indicePacienteActual >= pacientes.length" class="text-center">
+        <img [src]="galloImagen" alt="Gallo" class="img-fluid gallo-imagen">
+    </div>
+    <div class="text-center" *ngIf="vidas === 0">
+        <p class="mt-3" *ngIf="vidas === 0">Oh no, has perdido todas tus vidas. ¿Quieres intentarlo de nuevo?</p>
+        <button (click)="reiniciarJuego()">Intentar de nuevo</button><br>
+        <img src="assets/sad.png" alt="Gallo" class="img-fluid gallo-imagen">
+    </div>
+
+  </div>
