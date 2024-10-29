@@ -10,22 +10,17 @@ import { Component } from '@angular/core';
 })
 export class NivelCondicionalesComponent {
   pacientes = [
-    { sintoma: 'fiebre', tratamientoCorrecto: 'medicamento', imagen: 'assets/paciente1.png' },
-    { sintoma: 'deshidratación', tratamientoCorrecto: 'líquidos', imagen: 'assets/paciente2.png' },
-    { sintoma: 'dolor de cabeza', tratamientoCorrecto: 'descanso', imagen: 'assets/paciente3.png' }
+    { nombre: 'El gallo Paco' ,sintoma: 'fiebre', tratamientoCorrecto: 'medicamento', imagen: 'assets/paciente1.png' },
+    { nombre: 'El gallo Juanin',sintoma: 'hambre', tratamientoCorrecto: 'comida', imagen: 'assets/paciente2.png' },
+    { nombre: 'La gallina Coco',sintoma: 'deshidratación', tratamientoCorrecto: 'liquidos', imagen: 'assets/paciente3.png' }
   ];
 
-  // Estado del índice del paciente actual
   indicePacienteActual: number = 0;
-
-  // Estado de vidas
   vidas: number = 3;
   mensajeResultado: string = 'Ayuda a los otros gallos!';
-
-  // Estado de la imagen del gallo
   galloImagen: string = 'assets/normal.png';
+  botonesDesactivados: boolean = false;
 
-  // Función para verificar el tratamiento y pasar al siguiente paciente si es correcto
   tratarPaciente(seleccion: string): void {
     if (this.vidas === 0 || this.indicePacienteActual >= this.pacientes.length) return;  // Evitar interacción si el juego ha terminado o todos los pacientes han sido tratados
 
@@ -34,9 +29,6 @@ export class NivelCondicionalesComponent {
     if (seleccion === pacienteActual.tratamientoCorrecto) {
       this.mensajeResultado = '¡Correcto!';
       this.mostrarGalloFeliz();
-
-      // Esperar 3 segundos y pasar al siguiente paciente
-      
     } else {
       this.mensajeResultado = 'Ups, intenta de nuevo.';
       this.mostrarGalloTriste();
@@ -44,26 +36,31 @@ export class NivelCondicionalesComponent {
     }
   }
 
-  // Función para restar una vida
   restarVida(): void {
     if (this.vidas > 0) {
       this.vidas -= 1;
     }
   }
 
-  // Funciones para cambiar la imagen del gallo
   mostrarGalloTriste(): void {
+    this.botonesDesactivados = true;
     this.galloImagen = 'assets/sad.png';
-    setTimeout(() => this.galloImagen = 'assets/normal.png', 3000);
+
+    setTimeout(() => {
+      this.galloImagen = 'assets/normal.png';
+      this.botonesDesactivados = false;
+    }, 3000);
   }
 
   mostrarGalloFeliz(): void {
+    this.botonesDesactivados = true;
     this.galloImagen = 'assets/happy.png';
+
     setTimeout(() => {
       this.indicePacienteActual++;
       this.mensajeResultado = 'Ayuda a los otros gallos!';
+      this.botonesDesactivados = false;
 
-      // Revisar si se han completado todos los pacientes
       if (this.indicePacienteActual >= this.pacientes.length) {
         this.mensajeResultado = '¡Felicidades! Has ayudado a todos los pacientes.';
       } else {
@@ -72,10 +69,9 @@ export class NivelCondicionalesComponent {
     }, 3000);
   }
 
-  // Función para reiniciar el juego
   reiniciarJuego(): void {
     this.vidas = 3;
-    this.mensajeResultado = '';
+    this.mensajeResultado = 'Ayuda a los otros gallos!';
     this.indicePacienteActual = 0;
     this.galloImagen = 'assets/normal.png';
   }

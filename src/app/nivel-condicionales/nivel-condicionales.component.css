@@ -5,13 +5,18 @@
     margin-bottom: 15px;
   }
   
-
+.paciente-imagen {
+  width: 20vw;
+}
   
 .gallo-imagen {
-    width: 20vw;
+    width: 25vw;
     transition: opacity 0.3s ease;
   }
 
+  h1{ 
+    font-size: 2.5vw;
+  }
   p{
     font-size: 2vw;
     color: #07215e;
@@ -49,3 +54,7 @@ button:active {
     color: #07215e;
 }
 
+button:disabled:hover {
+  background-image: url('../../assets/buttons/buttonbackground.png');
+    color: #07215e;
+}
