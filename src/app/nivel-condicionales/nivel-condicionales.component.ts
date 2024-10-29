@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Dialogo2Component } from '../dialogo2/dialogo2.component';
 
 @Component({
   selector: 'app-nivel-condicionales',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Dialogo2Component],
   templateUrl: './nivel-condicionales.component.html',
   styleUrl: './nivel-condicionales.component.css'
 })
@@ -20,7 +21,12 @@ export class NivelCondicionalesComponent {
   mensajeResultado: string = 'Ayuda a los otros gallos!';
   galloImagen: string = 'assets/normal.png';
   botonesDesactivados: boolean = false;
+  mostrarDialogo: boolean = true;
 
+  // Método para ocultar el diálogo al finalizar
+  ocultarDialogo(): void {
+    this.mostrarDialogo = false;
+  }
   tratarPaciente(seleccion: string): void {
     if (this.vidas === 0 || this.indicePacienteActual >= this.pacientes.length) return;  // Evitar interacción si el juego ha terminado o todos los pacientes han sido tratados
 

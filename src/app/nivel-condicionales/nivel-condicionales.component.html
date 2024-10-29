@@ -1,33 +1,37 @@
-<h1 class="text-center my-3">Nivel 2: Ayuda al Gallo a Tratar Pacientes</h1>
-<div class="container-fluid">
-    <div class="mb-3 text-center">
-        <p>{{ mensajeResultado }}</p>
-        <div *ngIf="indicePacienteActual != pacientes.length">
-            <img *ngFor="let vida of [].constructor(vidas)" src="assets/heart.png" alt="Corazón" width="30" class="me-2 hearts">
+<app-dialogo2 *ngIf="mostrarDialogo" (dialogoTerminado)="ocultarDialogo()"></app-dialogo2>
+<div *ngIf="!mostrarDialogo">
+  <h1 class="text-center my-3">Nivel 2: Ayuda al Gallo a Tratar Pacientes</h1>
+  <div class="container-fluid">
+      <div class="mb-3 text-center">
+          <p>{{ mensajeResultado }}</p>
+          <div *ngIf="indicePacienteActual != pacientes.length">
+              <img *ngFor="let vida of [].constructor(vidas)" src="assets/heart.png" alt="Corazón" width="30" class="me-2 hearts">
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 d-flex flex-column align-items-start">
+          <div class="text-center" *ngIf="vidas > 0 && indicePacienteActual < pacientes.length">
+            <p>{{pacientes[indicePacienteActual].nombre}} tiene {{ pacientes[indicePacienteActual].sintoma }}.</p>
+            <img [src]="pacientes[indicePacienteActual].imagen" alt="Imagen del paciente" class="paciente-imagen mb-3">
+            <br>
+            <button class="me-2 mb-2" (click)="tratarPaciente('liquidos')" [disabled]="botonesDesactivados">Dar líquidos</button>
+            <button class="me-2 mb-2" (click)="tratarPaciente('medicamento')" [disabled]="botonesDesactivados">Dar medicamento</button>
+            <button class="mb-2" (click)="tratarPaciente('comida')" [disabled]="botonesDesactivados">Dar comida</button>
+          </div>
         </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 d-flex flex-column align-items-start">
-        <div class="text-center" *ngIf="vidas > 0 && indicePacienteActual < pacientes.length">
-          <p>{{pacientes[indicePacienteActual].nombre}} tiene {{ pacientes[indicePacienteActual].sintoma }}.</p>
-          <img [src]="pacientes[indicePacienteActual].imagen" alt="Imagen del paciente" class="paciente-imagen mb-3">
-          <br>
-          <button class="me-2 mb-2" (click)="tratarPaciente('liquidos')" [disabled]="botonesDesactivados">Dar líquidos</button>
-          <button class="me-2 mb-2" (click)="tratarPaciente('medicamento')" [disabled]="botonesDesactivados">Dar medicamento</button>
-          <button class="mb-2" (click)="tratarPaciente('comida')" [disabled]="botonesDesactivados">Dar comida</button>
+    
+        <div class="col-md-4 d-flex justify-content-center align-items-center text-center">
+          <img *ngIf="indicePacienteActual < pacientes.length && vidas != 0" [src]="galloImagen" alt="Gallo" class="img-fluid gallo-imagen">
         </div>
       </div>
-  
-      <div class="col-md-4 d-flex justify-content-center align-items-center text-center">
-        <img *ngIf="indicePacienteActual < pacientes.length && vidas != 0" [src]="galloImagen" alt="Gallo" class="img-fluid gallo-imagen">
+      <div *ngIf="indicePacienteActual >= pacientes.length" class="text-center">
+          <img [src]="galloImagen" alt="Gallo" class="img-fluid gallo-imagen">
       </div>
-    </div>
-    <div *ngIf="indicePacienteActual >= pacientes.length" class="text-center">
-        <img [src]="galloImagen" alt="Gallo" class="img-fluid gallo-imagen">
-    </div>
-    <div class="text-center" *ngIf="vidas === 0">
-        <p class="mt-3" *ngIf="vidas === 0">Oh no, has perdido todas tus vidas. ¿Quieres intentarlo de nuevo?</p>
-        <button (click)="reiniciarJuego()">Intentar de nuevo</button><br>
-        <img src="assets/sad.png" alt="Gallo" class="img-fluid gallo-imagen">
-    </div>
-</div>
+      <div class="text-center" *ngIf="vidas === 0">
+          <p class="mt-3" *ngIf="vidas === 0">Oh no, has perdido todas tus vidas. ¿Quieres intentarlo de nuevo?</p>
+          <button (click)="reiniciarJuego()">Intentar de nuevo</button><br>
+          <img src="assets/sad.png" alt="Gallo" class="img-fluid gallo-imagen">
+      </div>
+  </div></div>
+
+

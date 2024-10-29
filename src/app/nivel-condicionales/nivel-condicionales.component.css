@@ -15,12 +15,12 @@
   }
 
   h1{ 
-    font-size: 2.5vw;
+    font-size: 3vw;
   }
   p{
-    font-size: 2vw;
-    color: #07215e;
-    /* -webkit-text-stroke: 0.05vw #88a0d8; */
+    font-size: 2.6vw;
+    color: #88a0d8;
+    -webkit-text-stroke: 0.08vw #07215e;
   }
 
   .hearts {
