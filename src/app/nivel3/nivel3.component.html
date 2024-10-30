@@ -1,0 +1,34 @@
+<div class="game-container">
+  <h2>Llena el matraz de 50 ml, 10 ml a la vez.</h2>
+  <p>{{ message }}</p>
+  
+  <!-- Botón para tomar la jeringa -->
+  <button (click)="takeSyringe()">
+    Tomar Jeringa
+  </button>
+  
+  <!-- Botón para tomar el trapo -->
+  <button (click)="takeCloth()">
+    Tomar Trapo
+  </button>
+  
+  <!-- Botón para llenar el matraz, habilitado solo si el usuario tiene la jeringa -->
+  <button (click)="fillFlask()" [disabled]="!hasSyringe || currentVolume >= maxVolume || !spillCleaned">
+    Llenar Matraz (10 ml)
+  </button>
+  
+  <!-- Botón para limpiar el derrame, habilitado solo si el usuario tiene el trapo y hay un derrame -->
+  @if(!spillCleaned){
+    <button (click)="cleanSpill()" [disabled]="!hasCloth">
+      Limpiar Derrame
+    </button>
+  }
+
+  <!-- Botón para reiniciar el juego -->
+  <button (click)="reset()">Reiniciar</button>
+  
+  <!-- Progreso visual de llenado del matraz -->
+  <div class="progress">
+    <div class="progress-bar" [style.width.%]="(currentVolume / maxVolume) * 100"></div>
+  </div>
+</div>
