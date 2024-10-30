@@ -1,0 +1,45 @@
+<app-dialogo1 *ngIf="mostrarDialogo" (dialogoTerminado)="ocultarDialogo()"></app-dialogo1>
+<div *ngIf="!mostrarDialogo">
+    <h1 class="text-center my-3">Nivel 1: Ayuda al Gallo a Organizar Cosas</h1>
+    @if(vidas != 0 && !win) {
+        <div class="text-center my-5">
+            <img *ngFor="let vida of [].constructor(vidas)" src="assets/heart.png" alt="Corazón" width="30" class="me-2 hearts">
+        </div>
+        <div class="image-container">
+          <div>
+            @for (image of randomizedImages; track image.src) {
+              @if(!image.on){
+                <img
+                [src]="image.src"
+                [id]="image.id"
+                draggable="true"
+                (dragstart)="onDragStart($event, image.id)"
+                alt="Imagen draggable"
+              />
+              {{image.id}}
+              }
+            }
+          </div>
+        </div>
+      
+        <div class="drop-zones">
+          @for(container of randomizedContainers; track container.valueOf) {
+            <div
+              class="drop-zone"
+              [attr.id]="'container' + container"
+              (drop)="onDrop($event, 'container' + container)"
+              (dragover)="onDragOver($event)"
+            >
+              container{{ container }}
+            </div>
+          }
+        </div>
+      }
+      <div class="message">{{ message }}</div>
+      @if(!win && vidas==0){
+        <button (click)="reset()" >
+          Volver a intentar
+        </button>
+      }
+      
+</div>

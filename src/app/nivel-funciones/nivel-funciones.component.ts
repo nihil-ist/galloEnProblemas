@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Dialogo4Component } from '../dialogo4/dialogo4.component';
 
 @Component({
   selector: 'app-nivel-funciones',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Dialogo4Component],
   templateUrl: './nivel-funciones.component.html',
   styleUrl: './nivel-funciones.component.css'
 })
@@ -24,12 +25,18 @@ export class NivelFuncionesComponent {
   
   
   indicePregunta = 0;
-  galloImagen = 'assets/normal.png';
+  galloImagen = 'assets/thinker.png';
   respuestasHabilitadas = true; // Controla si las respuestas están habilitadas
   mostrarResultado: boolean = false;
   introvertidoCount: number = 0;
   extrovertidoCount: number = 0;
+  mostrarDialogo: boolean = true;
 
+  // Método para ocultar el diálogo al finalizar
+  ocultarDialogo(): void {
+    this.mostrarDialogo = false;
+  }
+  
   ngOnInit(): void {
     this.reiniciarTest(); // Llama al método al iniciar el componente
   }
@@ -50,21 +57,25 @@ export class NivelFuncionesComponent {
     }
   
     // Cambia a la imagen del gallo feliz y espera 3 segundos
-    this.galloImagen = 'assets/happy.png';
+    this.galloImagen = 'assets/normal.png'; // Imagen intermedia
     setTimeout(() => {
-      // Regresa la imagen normal del gallo
-      this.galloImagen = 'assets/normal.png';
-  
-      // Pasa a la siguiente pregunta
-      this.indicePregunta++;
-      // Vuelve a habilitar las respuestas
-      this.respuestasHabilitadas = true;
-  
-      // Si no hay más preguntas, muestra el resultado
-      if (this.indicePregunta >= this.preguntas.length) {
-        this.mostrarResultado = true;
-      }
-    }, 3000);
+        // Cambia a la imagen del gallo feliz y espera 3 segundos
+        this.galloImagen = 'assets/happy.png';
+        setTimeout(() => {
+            // Regresa la imagen thinker del gallo
+            this.galloImagen = 'assets/thinker.png';
+
+            // Pasa a la siguiente pregunta
+            this.indicePregunta++;
+            // Vuelve a habilitar las respuestas
+            this.respuestasHabilitadas = true;
+
+            // Si no hay más preguntas, muestra el resultado
+            if (this.indicePregunta >= this.preguntas.length) {
+                this.mostrarResultado = true;
+            }
+        }, 2500); // Espera 3 segundos con la imagen feliz
+    }, 500); // Espera 1 segundo con la imagen normal
   }
   
   reiniciarTest() {
@@ -73,7 +84,7 @@ export class NivelFuncionesComponent {
     this.indicePregunta = 0; // Reinicia el índice de la pregunta
     this.mostrarResultado = false; // Oculta el resultado
     this.respuestasHabilitadas = true; // Habilita nuevamente las respuestas
-    this.galloImagen = 'assets/normal.png'; // Resetea la imagen del gallo
+    this.galloImagen = 'assets/thinker.png'; // Resetea la imagen del gallo
   }
 
   

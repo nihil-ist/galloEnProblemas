@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Dialogo1Component } from '../dialogo1/dialogo1.component';
 
 @Component({
   selector: 'app-nivel1',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, Dialogo1Component],
   templateUrl: './nivel1.component.html',
   styleUrl: './nivel1.component.css'
 })
@@ -20,7 +22,13 @@ export class Nivel1Component {
   randomizedContainers: number[] = [];
   randomizedImages: any[] = [];
   win:boolean = false;
+  mostrarDialogo: boolean = true;
 
+  // Método para ocultar el diálogo al finalizar
+  ocultarDialogo(): void {
+    this.mostrarDialogo = false;
+  }
+  
   constructor() {
     this.randomizeOrder();
     this.setValues();
