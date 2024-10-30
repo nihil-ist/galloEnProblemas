@@ -1,0 +1,30 @@
+<h1 class="text-center my-3">Nivel 4: Ayuda al Gallo a Encontrar su Personalidad</h1>
+<div *ngIf="!mostrarResultado">
+    <div class="test-container" *ngIf="preguntaActual">
+        <div class="pregunta">
+            <h2>{{ preguntas[indicePregunta].texto }}</h2>
+        </div>
+        <div class="gallo-contenedor">
+          <img [src]="galloImagen" alt="Gallo" class="gallo-imagen">
+        </div>
+      
+        <div class="respuestas">
+            <button class="respuesta izquierda" (click)="seleccionarRespuesta('izquierda')" [disabled]="!respuestasHabilitadas">{{ preguntas[indicePregunta].respuestaIzquierda }}</button>
+            <button class="respuesta derecha" (click)="seleccionarRespuesta('derecha')" [disabled]="!respuestasHabilitadas">{{ preguntas[indicePregunta].respuestaDerecha }}</button>
+          </div>
+      </div>
+</div>
+
+
+<div *ngIf="mostrarResultado" class="resultado text-center">
+  <h2>Resultado Final</h2>
+  <p *ngIf="introvertidoCount > extrovertidoCount">Eres más introvertido. Te gusta la tranquilidad y disfrutar del tiempo a solas.</p>
+  <p *ngIf="extrovertidoCount > introvertidoCount">Eres más extrovertido. Te encanta socializar y estar rodeado de personas.</p>
+  <p *ngIf="introvertidoCount === extrovertidoCount">Tienes un balance entre introversión y extroversión. ¡Está bien ser un poco de ambos!</p>
+  <img src="assets/happy.png" alt="Gallo Feliz" class="gallo-imagen">
+  <br>
+  <button class="boton my-5" (click)="reiniciarTest()">Reiniciar Test</button>
+
+</div>
+
+  
