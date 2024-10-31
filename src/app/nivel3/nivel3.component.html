@@ -1,34 +1,54 @@
-<div class="game-container">
-  <h2>Llena el matraz de 50 ml, 10 ml a la vez.</h2>
+<app-dialogo3 *ngIf="mostrarDialogo" (dialogoTerminado)="ocultarDialogo()"></app-dialogo3>
+<div *ngIf="!mostrarDialogo && !showCongratulationsScreen">
+    <h1 class="text-center my-3">Nivel 3: Ayuda al Gallo a Llenar el Matraz</h1>
+    
+    <div class="container text-center">
   <p>{{ message }}</p>
   
-  <!-- Botón para tomar la jeringa -->
-  <button (click)="takeSyringe()">
-    Tomar Jeringa
-  </button>
+  <div class="controls-top">
+    
+    <button (click)="fillFlask()">Llenar Matraz</button>
+    <button (click)="cleanSpill()">Limpiar Derrame</button>
+    <button (click)="reset()">Reiniciar Nivel</button>
+  </div>
   
-  <!-- Botón para tomar el trapo -->
-  <button (click)="takeCloth()">
-    Tomar Trapo
-  </button>
+  <div class="container">
+    <div class="flask-gallo-row">
+      <!-- Sección del Matraz -->
+      <div class="flask-section">
+        <img 
+          [src]="'assets/flask_' + currentVolume + '.png'" 
+          alt="Matraz" 
+          class="matraz-image" 
+        />
+      </div>
   
-  <!-- Botón para llenar el matraz, habilitado solo si el usuario tiene la jeringa -->
-  <button (click)="fillFlask()" [disabled]="!hasSyringe || currentVolume >= maxVolume || !spillCleaned">
-    Llenar Matraz (10 ml)
-  </button>
+      <!-- Sección del Gallo -->
+      <div class="gallo-section">
+        <img [src]="galloImage" alt="Gallo" class="gallo-image" />
+      </div>
+    </div>
+  </div>
   
-  <!-- Botón para limpiar el derrame, habilitado solo si el usuario tiene el trapo y hay un derrame -->
-  @if(!spillCleaned){
-    <button (click)="cleanSpill()" [disabled]="!hasCloth">
-      Limpiar Derrame
-    </button>
-  }
-
-  <!-- Botón para reiniciar el juego -->
-  <button (click)="reset()">Reiniciar</button>
+  <div class="controls-bottom">
+    <button (click)="takeSyringe()">Tomar Jeringa</button>
+    <button (click)="takeCloth()">Tomar Trapo</button>
+  </div>
   
-  <!-- Progreso visual de llenado del matraz -->
-  <div class="progress">
+  <!-- <div class="progress">
     <div class="progress-bar" [style.width.%]="(currentVolume / maxVolume) * 100"></div>
+  </div> -->
+</div>
+
+  <!-- Progreso visual de llenado del matraz -->
+  
+</div>
+
+<div *ngIf="showCongratulationsScreen && !mostrarDialogo" class="congratulations">
+  <h1>¡Felicidades! Has llenado todo el matraz</h1>
+  <img src="assets/happy.png" alt="Gallo feliz en el centro" class="gallo-center" />
+  <div class="congratulations-buttons">
+    <button [routerLink]="['/funciones']" routerLinkActive="router-link-active" >Clic para continuar</button>
+    <button (click)="reset()">Reiniciar Nivel</button>
   </div>
 </div>

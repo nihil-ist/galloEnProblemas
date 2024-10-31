@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Dialogo2Component } from '../dialogo2/dialogo2.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nivel-condicionales',
   standalone: true,
-  imports: [CommonModule, Dialogo2Component],
+  imports: [CommonModule, Dialogo2Component, RouterLink],
   templateUrl: './nivel-condicionales.component.html',
   styleUrl: './nivel-condicionales.component.css'
 })

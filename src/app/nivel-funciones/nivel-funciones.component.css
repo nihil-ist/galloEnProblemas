@@ -10,7 +10,6 @@
   
   .pregunta {
     font-size: 24px;
-    margin-bottom: 20px;
   }
   
   .gallo-contenedor {
@@ -60,10 +59,16 @@
   }
   h1{ 
     font-size: 3vw;
+    color:white;
+    -webkit-text-stroke: 0.1vw #07215e;
+
   }
 
 h2 {
     font-size: 2vw;
+    color: #88a0d8;
+    -webkit-text-stroke: 0.08vw #07215e;
+
 }  
 
   .respuesta, .respuesta:active, .boton, .boton:active {

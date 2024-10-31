@@ -1,7 +1,7 @@
 <app-dialogo4 *ngIf="mostrarDialogo" (dialogoTerminado)="ocultarDialogo()"></app-dialogo4>
 
 <div *ngIf="!mostrarDialogo">
-    <h1 class="text-center my-3">Nivel 4: Ayuda al Gallo a Encontrar su Personalidad</h1>
+    <h1 class="text-center my-3 mb-0">Nivel 4: Ayuda al Gallo a Encontrar su Personalidad</h1>
     <div *ngIf="!mostrarResultado">
         <div class="test-container" *ngIf="preguntaActual">
             <div class="pregunta">
@@ -26,8 +26,10 @@
       <p *ngIf="introvertidoCount === extrovertidoCount">Tienes un balance entre introversión y extroversión. ¡Está bien ser un poco de ambos!</p>
       <img src="assets/happy.png" alt="Gallo Feliz" class="gallo-imagen">
       <br>
-      <button class="boton my-5" (click)="reiniciarTest()">Reiniciar Test</button>
-    
+      <div class="congratulations-buttons">
+        <button class="boton" [routerLink]="['/menu']" routerLinkActive="router-link-active" >Clic para continuar</button>
+        <button (click)="reiniciarTest()" class="boton">Reiniciar Nivel</button>
+      </div>
     </div>
 </div>
 

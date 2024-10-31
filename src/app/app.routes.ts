@@ -11,7 +11,7 @@ import { Nivel3Component } from './nivel3/nivel3.component';
 import { Nivel1Component } from './nivel1/nivel1.component';
 
 export const routes: Routes = [
-    {path:'', component: MenuComponent},
+    {path:'menu', component: MenuComponent},
     {path: 'juego' ,component: JuegoComponent},
     {path: 'creditos' ,component: CreditosComponent},
     {path: 'opciones' ,component: OpcionesComponent},
@@ -20,5 +20,5 @@ export const routes: Routes = [
     {path: 'funciones', component: NivelFuncionesComponent},
     {path: 'ciclos', component: Nivel3Component},
     {path: 'variables', component: Nivel1Component},
-    {path: '**', component:MenuComponent}
+    {path: '**', pathMatch: 'full', redirectTo: 'menu'}
 ];

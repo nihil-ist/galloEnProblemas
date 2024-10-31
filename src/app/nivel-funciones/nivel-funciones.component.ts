@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Dialogo4Component } from '../dialogo4/dialogo4.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nivel-funciones',
   standalone: true,
-  imports: [CommonModule, Dialogo4Component],
+  imports: [CommonModule, Dialogo4Component, RouterModule],
   templateUrl: './nivel-funciones.component.html',
   styleUrl: './nivel-funciones.component.css'
 })

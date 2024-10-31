@@ -58,3 +58,12 @@ button:disabled:hover {
   background-image: url('../../assets/buttons/buttonbackground.png');
     color: #07215e;
 }
+
+.congratulations-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.congratulations-buttons button {
+  font-size: 1.5vw;
+}
