@@ -8,7 +8,7 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [FormsModule, RouterModule, RouterOutlet, CommonModule],
   templateUrl: './juego.component.html',
-  styleUrl: './juego.component.css'
+  styleUrls: ['./juego.component.css']
 })
 export class JuegoComponent {
   nombreUsuario: string = '';
@@ -22,13 +22,14 @@ export class JuegoComponent {
   }
 
   empezarJuego() {
-    if (this.mostrarNuevoInput) {
+    if (this.mostrarNuevoInput || !this.nombreGuardado) {
       localStorage.setItem('nombreUsuario', this.nombreUsuario);
+      this.nombreGuardado = this.nombreUsuario;  // Actualiza nombreGuardado inmediatamente
       console.log("Nombre del usuario guardado en localStorage:", this.nombreUsuario);
     } else {
       console.log("Continuando con el nombre guardado:", this.nombreGuardado);
     }
-    this.router.navigate(['/juego1']);
+    this.router.navigate(['/variables']);
   }
 
   ingresarOtroNombre() {
