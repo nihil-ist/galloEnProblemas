@@ -24,7 +24,7 @@ export class Dialogo1Component {
       
       // Define el arreglo de diálogos después de obtener el nombre
       this.dialogos = [
-        { personaje: 'gallo', mensaje: '¡Hola viejo Pablo! ¿Cómo has estado? Llevo años que no te veo, desde que eras compañero de mis papás gallos.' },
+        { personaje: 'gallo', mensaje: '¡Hola, viejo Pablo! ¿Cómo has estado? Llevo años que no te veo, desde que eras compañero de mis papás gallos.' },
         { personaje: 'sabio', mensaje: '¡Muy bien gallo! Han pasado ya el tiempo y yo sigo aquí, ayudando a los que se cruzan por mi camino. Dime, ¿tú cómo has estado?' },
         { personaje: 'gallo', mensaje: 'Bien bien, solo que... no sé qué carrera voy a estudiar. Llevo un tiempo pensando y todavía no he dado en el clavo con la correcta.' },
         { personaje: 'sabio', mensaje: 'Escoger carrera es una decisión muy importante. No porque vayas a vivir de esto obligatoriamente, pero es una etapa que te va a marcar de por vida.' },
