@@ -24,12 +24,11 @@ export class NivelCondicionalesComponent {
   botonesDesactivados: boolean = false;
   mostrarDialogo: boolean = true;
 
-  // Método para ocultar el diálogo al finalizar
   ocultarDialogo(): void {
     this.mostrarDialogo = false;
   }
   tratarPaciente(seleccion: string): void {
-    if (this.vidas === 0 || this.indicePacienteActual >= this.pacientes.length) return;  // Evitar interacción si el juego ha terminado o todos los pacientes han sido tratados
+    if (this.vidas === 0 || this.indicePacienteActual >= this.pacientes.length) return; 
 
     const pacienteActual = this.pacientes[this.indicePacienteActual];
 

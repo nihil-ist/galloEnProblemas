@@ -13,23 +13,20 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit, OnDestroy{
   title = 'proyectoServicio';
-
   currentRoute: string = '';
-  private routeSub: Subscription = new Subscription;
+  private routeSub: Subscription = new Subscription();
 
   constructor(private musicService: MusicService, private router: Router, private route: ActivatedRoute) {}
-  ngOnInit(): void {
-    this.musicService.playMusic();
 
+  ngOnInit(): void {
     this.routeSub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.currentRoute = event.urlAfterRedirects; // Obtiene la ruta actual
+        this.currentRoute = event.urlAfterRedirects;
       }
     });
   }
 
   ngOnDestroy(): void {
-    // Limpia la suscripción para evitar fugas de memoria
     if (this.routeSub) {
       this.routeSub.unsubscribe();
     }
@@ -40,7 +37,12 @@ export class AppComponent implements OnInit, OnDestroy{
   }
 
   unmute(): void {
-    this.musicService.unmuteMusic();
+    if (this.musicService.isMuted()) {
+      this.musicService.unmuteMusic();
+      if (this.musicService.isPlaying() === false) {
+        this.musicService.playMusic(); 
+      }
+    }
   }
 
   isMuted(): boolean {
@@ -48,10 +50,6 @@ export class AppComponent implements OnInit, OnDestroy{
   }
 
   goToMenu(): void {
-    this.router.navigate(['/menu']); // Redirige al usuario a la página /menu
+    this.router.navigate(['/menu']);
   }
-
-  
-
-  
 }

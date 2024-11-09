@@ -32,22 +32,22 @@ body, html {
   .image-container img {
     margin: 10px; /* Espaciado entre las imágenes */
     cursor: grab; /* Cambia el cursor al arrastrar */
-    width: 100px; /* Ajusta el tamaño de las imágenes según lo necesites */
+    width: 15vw; /* Ajusta el tamaño de las imágenes según lo necesites */
   }
   
   /* Estilo para los contenedores */
   .drop-zone {
-    border: 2px dashed #007BFF; /* Borde de los contenedores */
+    /* border: 2px dashed #007BFF; Borde de los contenedores */
     padding: 20px; /* Espacio interno en el contenedor */
     margin: 10px; /* Espaciado entre contenedores */
     text-align: center; /* Centra el texto en los contenedores */
-    width: 100px; /* Ajusta el tamaño de los contenedores según lo necesites */
+    width: 15vw; /* Ajusta el tamaño de los contenedores según lo necesites */
   }
 
   .drop-zone {
-    width: 100px; /* Ajusta el tamaño según necesites */
-    height: 100px; /* Ajusta el tamaño según necesites */
-    border: 2px dashed #ccc; /* Estilo del borde */
+    width: 15vw; /* Ajusta el tamaño según necesites */
+    height: 15vw; /* Ajusta el tamaño según necesites */
+    /* border: 2px dashed #ccc; Estilo del borde */
     display: flex;
     align-items: center;
     justify-content: center;

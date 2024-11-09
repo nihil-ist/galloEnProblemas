@@ -9,20 +9,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './dialogo2.component.css'
 })
 export class Dialogo2Component {
-  nombreUsuario: string = ''; // Almacena el nombre del usuario
-  dialogos: { personaje: string; mensaje: string }[] = []; // Inicializa el arreglo vacío
+  nombreUsuario: string = ''; 
+  dialogos: { personaje: string; mensaje: string }[] = []; 
   indiceDialogo: number = 0;
 
   @Output() dialogoTerminado = new EventEmitter<void>();
 
   ngOnInit(): void {
-    // Obtén el nombre desde el localStorage cuando se carga el componente
     const nombreGuardado = localStorage.getItem('nombreUsuario');
     if (nombreGuardado) {
       this.nombreUsuario = nombreGuardado;
       console.log(this.nombreUsuario);
       
-      // Define el arreglo de diálogos después de obtener el nombre
       this.dialogos = [
         { personaje: 'gallo', mensaje: '¡Hola de nuevo, viejo Pablo! Ahora entiendo bien las variables, gracias a ti.' },
         { personaje: 'sabio', mensaje: 'Me alegra haberte ayudado, Gallo. Ahora... ¿Estás listo para aprender condicionales?' },
@@ -51,12 +49,10 @@ export class Dialogo2Component {
     }
   }
 
-  // Método para ocultar el diálogo y comenzar el juego
   terminarDialogo(): void {
     this.dialogoTerminado.emit(); 
   }
 
-  // Obtener el mensaje actual y el personaje
   get mensajeActual() {
     return this.dialogos[this.indiceDialogo];
   }

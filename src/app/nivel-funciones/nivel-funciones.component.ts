@@ -27,19 +27,18 @@ export class NivelFuncionesComponent {
   
   indicePregunta = 0;
   galloImagen = 'assets/thinker.png';
-  respuestasHabilitadas = true; // Controla si las respuestas están habilitadas
+  respuestasHabilitadas = true; 
   mostrarResultado: boolean = false;
   introvertidoCount: number = 0;
   extrovertidoCount: number = 0;
   mostrarDialogo: boolean = true;
 
-  // Método para ocultar el diálogo al finalizar
   ocultarDialogo(): void {
     this.mostrarDialogo = false;
   }
   
   ngOnInit(): void {
-    this.reiniciarTest(); // Llama al método al iniciar el componente
+    this.reiniciarTest(); 
   }
 
   get preguntaActual() {
@@ -47,45 +46,37 @@ export class NivelFuncionesComponent {
   }
 
   seleccionarRespuesta(respuesta: 'izquierda' | 'derecha') {
-    // Desactiva las respuestas
     this.respuestasHabilitadas = false;
   
-    // Incrementa el contador según la respuesta seleccionada
     if (respuesta === 'izquierda') {
       this.introvertidoCount++;
     } else {
       this.extrovertidoCount++;
     }
   
-    // Cambia a la imagen del gallo feliz y espera 3 segundos
-    this.galloImagen = 'assets/normal.png'; // Imagen intermedia
+    this.galloImagen = 'assets/normal.png'; 
     setTimeout(() => {
-        // Cambia a la imagen del gallo feliz y espera 3 segundos
         this.galloImagen = 'assets/happy.png';
         setTimeout(() => {
-            // Regresa la imagen thinker del gallo
             this.galloImagen = 'assets/thinker.png';
 
-            // Pasa a la siguiente pregunta
             this.indicePregunta++;
-            // Vuelve a habilitar las respuestas
             this.respuestasHabilitadas = true;
 
-            // Si no hay más preguntas, muestra el resultado
             if (this.indicePregunta >= this.preguntas.length) {
                 this.mostrarResultado = true;
             }
-        }, 2500); // Espera 3 segundos con la imagen feliz
-    }, 500); // Espera 1 segundo con la imagen normal
+        }, 2500); 
+    }, 500); 
   }
   
   reiniciarTest() {
-    this.introvertidoCount = 0; // Reinicia el contador de introvertidos
-    this.extrovertidoCount = 0; // Reinicia el contador de extrovertidos
-    this.indicePregunta = 0; // Reinicia el índice de la pregunta
-    this.mostrarResultado = false; // Oculta el resultado
-    this.respuestasHabilitadas = true; // Habilita nuevamente las respuestas
-    this.galloImagen = 'assets/thinker.png'; // Resetea la imagen del gallo
+    this.introvertidoCount = 0; 
+    this.extrovertidoCount = 0; 
+    this.indicePregunta = 0;
+    this.mostrarResultado = false; 
+    this.respuestasHabilitadas = true; 
+    this.galloImagen = 'assets/thinker.png'; 
   }
 
   

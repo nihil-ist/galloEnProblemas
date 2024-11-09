@@ -1,3 +1,42 @@
 * {
     font-family: 'Minecraft';
 }
+
+/* Asegúrate de que el contenedor ocupe toda la pantalla */
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .centered {
+    text-align: center;
+    color: #FEA321;
+    -webkit-text-stroke: 0.18vw #D3003B;
+  }
+  
+
+h1 {
+    
+    font-size: 5vw;
+}
+
+h2 {
+    color: #898CC4;
+    -webkit-text-stroke: 0.15vw #07215e;
+    font-size: 4vw;
+}
+
+.yellow {
+    color: #FEA321;
+    -webkit-text-stroke: 0.15vw #D3003B;
+}
+
+h3 {
+    font-size: 3vw;
+    color: #898CC4;
+    -webkit-text-stroke: 0.12vw #07215e;
+}

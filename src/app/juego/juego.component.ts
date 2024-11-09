@@ -24,7 +24,7 @@ export class JuegoComponent {
   empezarJuego() {
     if (this.mostrarNuevoInput || !this.nombreGuardado) {
       localStorage.setItem('nombreUsuario', this.nombreUsuario);
-      this.nombreGuardado = this.nombreUsuario;  // Actualiza nombreGuardado inmediatamente
+      this.nombreGuardado = this.nombreUsuario;  
       console.log("Nombre del usuario guardado en localStorage:", this.nombreUsuario);
     } else {
       console.log("Continuando con el nombre guardado:", this.nombreGuardado);

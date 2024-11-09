@@ -29,24 +29,19 @@ export class Nivel1Component {
     this.reset();
   }
 
-  // Método para ocultar el diálogo al finalizar
   ocultarDialogo(): void {
     this.mostrarDialogo = false;
   }
 
-  // Método para aleatorizar imágenes y contenedores
   randomizeOrder() {
-    // Genera un orden aleatorio para las imágenes y los contenedores
     this.randomizedImages = [...this.images].sort(() => Math.random() - 0.5);
     this.randomizedContainers = [...this.contenedores].sort(() => Math.random() - 0.5);
     console.log("Orden de imágenes:", this.randomizedImages.map(img => img.src));
     console.log("Orden de contenedores:", this.randomizedContainers);
   }
 
-  // Método para asignar IDs y contenedores de las imágenes
   setValues() {
     for (let i = 0; i < this.randomizedImages.length; i++) {
-      // Asigna IDs únicos de imagen y contenedor en base al orden aleatorio
       this.randomizedImages[i].id = `img${this.contenedores[i]}`;
       this.randomizedImages[i].container = `container${this.contenedores[i]}`;
     }

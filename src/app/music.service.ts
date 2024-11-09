@@ -5,12 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class MusicService {
   private audio: HTMLAudioElement;
-  private muted: boolean = false;
+  private isMutedd: boolean = true; 
+
   constructor() {
     this.audio = new Audio();
-    this.audio.src = 'assets/music/bgMusic.mp3'; // Reemplaza con la ruta de tu archivo de música
-    this.audio.loop = true; // Hacer que la música se repita en bucle
-    this.audio.volume = 0.5; // Ajusta el volumen si lo deseas
+    this.audio.src = 'assets/music/bgMusic.mp3';
+    this.audio.loop = true;
+    this.audio.volume = 0.5;
+    this.audio.muted = true; 
   }
 
   playMusic(): void {
@@ -21,37 +23,32 @@ export class MusicService {
 
   stopMusic(): void {
     this.audio.pause();
-    this.audio.currentTime = 0; // Reinicia la música al inicio
+    this.audio.currentTime = 0;
   }
 
-  isPlaying(): boolean {
-    return !this.audio.paused;
-  }
-
-  
   muteMusic(): void {
     this.audio.muted = true;
-    this.muted = true; // Mutea la música
+    this.isMutedd = true;
   }
 
   unmuteMusic(): void {
     if (this.audio.volume === 0) {
-      this.setVolume(0.5);  // Ajusta el volumen a 0.5 si está en 0
+      this.setVolume(0.5);
     }
     this.audio.muted = false;
-    this.muted = false;
+    this.isMutedd = false;
   }
 
   isMuted(): boolean {
-    if (this.audio.muted || this.audio.volume == 0) 
-      return true;
-    else
-      return false
-    
+    return this.isMutedd;
   }
 
   setVolume(volume: number): void {
     this.audio.volume = volume;
+  }
+
+  isPlaying(): boolean {
+    return !this.audio.paused; 
   }
 
   getVolume(): number {

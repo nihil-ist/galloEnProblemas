@@ -16,7 +16,7 @@
                 (dragstart)="onDragStart($event, image.id)"
                 alt="Imagen draggable"
               />
-              {{image.id}}
+              <!-- {{image.id}} -->
               }
             }
           </div>
@@ -29,8 +29,9 @@
               [attr.id]="'container' + container"
               (drop)="onDrop($event, 'container' + container)"
               (dragover)="onDragOver($event)"
+              [ngStyle]="{'background-image': 'url(assets/box' + container + '.png)'}"
             >
-              container{{ container }}
+              <!-- container{{ container }} -->
             </div>
           }
         </div>

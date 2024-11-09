@@ -11,42 +11,38 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nivel3.component.css'
 })
 export class Nivel3Component {
-  maxVolume = 30; // Capacidad máxima del matraz en ml
-  currentVolume = 0; // Volumen actual en el matraz
-  spillCleaned = true; // Indica si el derrame ha sido limpiado
-  hasSyringe = false; // Indica si el usuario tiene la jeringa en mano
-  hasCloth = false; // Indica si el usuario tiene el trapo en mano
+  maxVolume = 30; 
+  currentVolume = 0; 
+  spillCleaned = true; 
+  hasSyringe = false; 
+  hasCloth = false; 
   message = ''; 
   spilled = false;
-  galloImage = 'assets/normal.png'; // Imagen actual del gallo
+  galloImage = 'assets/normal.png'; 
   mostrarDialogo: boolean = true;
-  showCongratulationsScreen = false; // Controla si se muestra la pantalla de felicitación
+  showCongratulationsScreen = false; 
 
-  // Método para ocultar el diálogo al finalizar
   ocultarDialogo(): void {
     this.mostrarDialogo = false;
   }
-  // Método para tomar la jeringa
   takeSyringe() {
     this.hasSyringe = true;
     this.hasCloth = false;
     this.updateMessage('Tienes la jeringa en la mano. Puedes llenar el matraz.');
   }
 
-  // Método para tomar el trapo
   takeCloth() {
     this.hasCloth = true;
     this.hasSyringe = false;
     this.updateMessage('Tienes el trapo en la mano. Puedes limpiar el derrame si es necesario.');
   }
 
-  // Método para llenar el matraz
   fillFlask() {
     if (this.currentVolume < this.maxVolume && this.spillCleaned && this.hasSyringe) {
       this.currentVolume += 10;
 
       if (this.currentVolume === 20 && !this.spilled) {
-        this.currentVolume -= 10; // Reviértelo debido al derrame
+        this.currentVolume -= 10; 
         this.spilled = true;
         this.spillCleaned = false;
         this.updateMessage('¡El líquido se ha derramado! Debes limpiarlo antes de continuar.');
@@ -72,11 +68,9 @@ export class Nivel3Component {
     }
   } 
 
-  // Método para limpiar el derrame
   cleanSpill() {
     if (!this.spillCleaned && this.hasCloth) {
       this.spillCleaned = true;
-      // this.spilled = true; // Permite seguir llenando el matraz
       this.galloImage = 'assets/normal.png';
       this.updateMessage('El derrame ha sido limpiado. Puedes continuar llenando el matraz.');
     } else if (!this.hasCloth) {
@@ -84,7 +78,6 @@ export class Nivel3Component {
     }
   }
 
-  // Reinicia el estado del juego
   reset() {
     this.currentVolume = 0;
     this.spillCleaned = true;
@@ -93,10 +86,9 @@ export class Nivel3Component {
     this.message = '';
     this.spilled = false;
     this.galloImage = 'assets/normal.png';
-    this.showCongratulationsScreen = false; // Oculta la pantalla de felicitación
+    this.showCongratulationsScreen = false; 
   }
 
-  // Actualiza el mensaje y mantiene la consistencia
   private updateMessage(newMessage: string) {
     this.message = newMessage;
   }
