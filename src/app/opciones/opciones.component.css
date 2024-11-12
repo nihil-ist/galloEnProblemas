@@ -1,0 +1,52 @@
+/* Contenedor principal de la página de opciones */
+.options-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  /* Título de opciones */
+  .options-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Contenedor de control de volumen */
+  .volume-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Etiqueta del slider */
+  .volume-control label {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Slider de volumen */
+  #volume-slider {
+    width: 300px; /* Ajusta el tamaño según prefieras */
+    height: 10px; /* Ajusta el grosor del slider */
+    cursor: pointer;
+  }
+  
+  /* Opcional: para un estilo más personalizado en el slider */
+  #volume-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+  }
+  
+  #volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+  }
+  
