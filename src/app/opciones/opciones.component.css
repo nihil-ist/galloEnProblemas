@@ -10,9 +10,11 @@
   
   /* Título de opciones */
   .options-title {
-    font-size: 2.5rem;
+    font-size: 5vw;
     margin-bottom: 1.5rem;
     font-weight: bold;
+    color: #88a0d8;
+  -webkit-text-stroke: 0.2vw #07215e;
   }
   
   /* Contenedor de control de volumen */
@@ -24,29 +26,34 @@
   
   /* Etiqueta del slider */
   .volume-control label {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 2vw;
+    margin-bottom: 1vw;
   }
   
   /* Slider de volumen */
   #volume-slider {
-    width: 300px; /* Ajusta el tamaño según prefieras */
-    height: 10px; /* Ajusta el grosor del slider */
+    width: 30vw; /* Ajusta el tamaño según prefieras */
+    height: 1vw; /* Ajusta el grosor del slider */
     cursor: pointer;
+    background-color: #D3003B;
+    border: 3px solid #07215e;
   }
   
   /* Opcional: para un estilo más personalizado en el slider */
   #volume-slider::-webkit-slider-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #333;
-    border-radius: 50%;
+    width: 1vw;
+    height: 1.6vw;
+    background-color: #D3003B;
+    border-radius: 0%;
+    border: 3px solid #07215e;
   }
   
   #volume-slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #333;
-    border-radius: 50%;
+    width: 1vw;
+    height: 1.6vw;
+    background-color: #FEA321;
+    border-radius: 0%;
+    border: 3px solid #07215e;
+    
   }
   

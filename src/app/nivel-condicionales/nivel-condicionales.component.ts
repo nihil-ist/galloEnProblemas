@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Dialogo2Component } from '../dialogo2/dialogo2.component';
 import { RouterLink } from '@angular/router';
+import { AudioService } from '../audio.service';
 
 @Component({
   selector: 'app-nivel-condicionales',
@@ -24,6 +25,8 @@ export class NivelCondicionalesComponent {
   botonesDesactivados: boolean = false;
   mostrarDialogo: boolean = true;
 
+  constructor(private audioService: AudioService) { }
+
   ocultarDialogo(): void {
     this.mostrarDialogo = false;
   }
@@ -45,6 +48,7 @@ export class NivelCondicionalesComponent {
   restarVida(): void {
     if (this.vidas > 0) {
       this.vidas -= 1;
+      this.audioService.playSound('assets/sounds/hit.mp3');
     }
   }
 
@@ -61,6 +65,7 @@ export class NivelCondicionalesComponent {
   mostrarGalloFeliz(): void {
     this.botonesDesactivados = true;
     this.galloImagen = 'assets/happy.png';
+    this.audioService.playSound('assets/sounds/yay.mp3');
 
     setTimeout(() => {
       this.indicePacienteActual++;
@@ -69,6 +74,8 @@ export class NivelCondicionalesComponent {
 
       if (this.indicePacienteActual >= this.pacientes.length) {
         this.mensajeResultado = '¡Felicidades! Has ayudado a todos los pacientes.';
+        this.completeLevel(); 
+        this.audioService.playSound('assets/sounds/yay.mp3');
       } else {
         this.galloImagen = 'assets/normal.png';
       }
@@ -80,5 +87,9 @@ export class NivelCondicionalesComponent {
     this.mensajeResultado = 'Ayuda a los otros gallos!';
     this.indicePacienteActual = 0;
     this.galloImagen = 'assets/normal.png';
+  }
+
+  completeLevel(): void {
+    localStorage.setItem('currentLevel', "3");
   }
 }

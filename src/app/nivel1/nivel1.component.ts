@@ -1,20 +1,21 @@
-
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Dialogo1Component } from '../dialogo1/dialogo1.component';
+import { RouterModule } from '@angular/router';
+import { AudioService } from '../audio.service';
 
 @Component({
   selector: 'app-nivel1',
   standalone: true,
-  imports: [CommonModule, Dialogo1Component],
+  imports: [CommonModule, Dialogo1Component, RouterModule],
   templateUrl: './nivel1.component.html',
   styleUrls: ['./nivel1.component.css']
 })
 export class Nivel1Component {
   images = [
-    { src: 'assets/0.png', id: '', container: '', on: false },
-    { src: 'assets/1.png', id: '', container: '', on: false },
-    { src: 'assets/2.png', id: '', container: '', on: false }
+    { src: 'assets/0.png', id: '1', container: '', on: false },
+    { src: 'assets/1.png', id: '2', container: '', on: false },
+    { src: 'assets/2.png', id: '3', container: '', on: false }
   ];
   message: string = '';
   vidas: number = 3;
@@ -23,9 +24,10 @@ export class Nivel1Component {
   randomizedImages: any[] = [];
   randomizedContainers: number[] = [];
   win: boolean = false;
+  galloImagen: string = 'assets/normal.png';
   mostrarDialogo: boolean = true;
 
-  constructor() {
+  constructor(private audioService: AudioService) {
     this.reset();
   }
 
@@ -42,7 +44,6 @@ export class Nivel1Component {
 
   setValues() {
     for (let i = 0; i < this.randomizedImages.length; i++) {
-      this.randomizedImages[i].id = `img${this.contenedores[i]}`;
       this.randomizedImages[i].container = `container${this.contenedores[i]}`;
     }
   }
@@ -52,11 +53,10 @@ export class Nivel1Component {
     this.progress = 0;
     this.win = false;
     this.message = '';
-    this.images = [
-      { src: 'assets/0.png', id: '', container: '', on: false },
-      { src: 'assets/1.png', id: '', container: '', on: false },
-      { src: 'assets/2.png', id: '', container: '', on: false }
-    ];
+    this.images.forEach(img => {
+      img.on = false;
+      img.container = '';
+    });
     this.randomizeOrder();
     this.setValues();
   }
@@ -76,15 +76,27 @@ export class Nivel1Component {
         if (image.container === containerId) {
           image.on = true;
           this.progress++;
-          if (this.progress < 3) {
+          if (this.progress < this.randomizedImages.length) {
             this.message = `¡Bien hecho, sigue así!`;
+            this.galloImagen = 'assets/happy.png';
+            this.audioService.playSound('assets/sounds/yay.mp3');
+            setTimeout(() => {
+              this.galloImagen = 'assets/normal.png';
+            }, 1000);
           } else {
-            this.message = `Felicidades, has completado el nivel.`;
             this.win = true;
+            this.completeLevel();
+            this.audioService.playSound('assets/sounds/yay.mp3');
+            this.galloImagen = 'assets/happy.png'
           }
         } else {
           this.message = `Oh no, la imagen no va en ese contenedor.`;
           this.vidas--;
+          this.audioService.playSound('assets/sounds/hit.mp3');
+          this.galloImagen = 'assets/sad.png';
+          setTimeout(() => {
+            this.galloImagen = 'assets/normal.png';
+          }, 1000);
           if (this.vidas === 0) {
             this.message = `Vuelve a intentarlo.`;
           }
@@ -96,4 +108,9 @@ export class Nivel1Component {
   onDragOver(event: DragEvent) {
     event.preventDefault();
   }
+
+completeLevel(): void {
+  localStorage.setItem('currentLevel', "2");
+}
+
 }

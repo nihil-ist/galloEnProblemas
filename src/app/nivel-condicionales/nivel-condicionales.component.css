@@ -10,15 +10,16 @@
 }
   
 .gallo-imagen {
-    width: 25vw;
+    width: 20vw;
     transition: opacity 0.3s ease;
   }
 
   h1{ 
     font-size: 3vw;
-  }
+    color:white;
+    -webkit-text-stroke: 0.1vw #07215e;  }
   p{
-    font-size: 2.6vw;
+    font-size: 2.5vw;
     color: #88a0d8;
     -webkit-text-stroke: 0.08vw #07215e;
   }
@@ -33,8 +34,8 @@
     background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
-    width: 20vw;
-    height: 10vw; 
+    width: 18vw;
+    height: 5.5vw; 
     border: none; 
     padding: 10px;
     color: #07215e;
@@ -61,9 +62,53 @@ button:disabled:hover {
 
 .congratulations-buttons {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
 .congratulations-buttons button {
   font-size: 1.5vw;
+}
+
+
+
+.boton-cerrar-dialogo {
+  position: fixed;
+  bottom: 2vw;
+  left: 2vw;
+  z-index: 1000; 
+}
+
+.boton-cerrar-dialogo, .boton-cerrar-dialogo:active {
+  background: none;
+  background-image: url('../../assets/buttons/buttonbackground.png');
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 15vw;
+  height: 4vw; 
+  border: none; 
+  padding: 10px;
+  color: #07215e;
+  font-size: 1vw;
+  text-align: center;
+  outline: none;
+
+}
+
+.boton-cerrar-dialogo:hover {
+  background-image: url('../../assets/buttons/buttonpressed.png');
+  
+}
+
+.boton-cerrar-dialogo:active {
+  background-image: url('../../assets/buttons/buttonbackground.png');
+  color: #07215e;
+}
+
+.boton-cerrar-dialogo:disabled:hover {
+background-image: url('../../assets/buttons/buttonbackground.png');
+  color: #07215e;
+  cursor: default;
 }

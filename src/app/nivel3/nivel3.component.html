@@ -1,4 +1,7 @@
 <app-dialogo3 *ngIf="mostrarDialogo" (dialogoTerminado)="ocultarDialogo()"></app-dialogo3>
+
+<button *ngIf="mostrarDialogo" class="boton-cerrar-dialogo" (click)="mostrarDialogo = false">Saltar diálogo</button>
+
 <div *ngIf="!mostrarDialogo && !showCongratulationsScreen">
     <h1 class="text-center my-3">Nivel 3: Ayuda al Gallo a Llenar el Matraz</h1>
     
@@ -7,9 +10,9 @@
   
   <div class="controls-top">
     
-    <button (click)="fillFlask()">Llenar Matraz</button>
-    <button (click)="cleanSpill()">Limpiar Derrame</button>
-    <button (click)="reset()">Reiniciar Nivel</button>
+    <button class="boton" (click)="fillFlask()">Llenar Matraz</button>
+    <button class="boton" (click)="cleanSpill()">Limpiar Derrame</button>
+    <button class="boton" (click)="reset()">Reiniciar Nivel</button>
   </div>
   
   <div class="container">
@@ -17,7 +20,7 @@
       <!-- Sección del Matraz -->
       <div class="flask-section">
         <img 
-          [src]="'assets/flask_' + currentVolume + '.png'" 
+          [src]="flaskImage" 
           alt="Matraz" 
           class="matraz-image" 
         />
@@ -31,13 +34,10 @@
   </div>
   
   <div class="controls-bottom">
-    <button (click)="takeSyringe()">Tomar Jeringa</button>
-    <button (click)="takeCloth()">Tomar Trapo</button>
+    <button class="jeringa" (click)="takeSyringe()">Tomar Jeringa</button>
+    <button class="trapo" (click)="takeCloth()">Tomar Trapo</button>
   </div>
   
-  <!-- <div class="progress">
-    <div class="progress-bar" [style.width.%]="(currentVolume / maxVolume) * 100"></div>
-  </div> -->
 </div>
 
   <!-- Progreso visual de llenado del matraz -->
@@ -48,7 +48,7 @@
   <h1>¡Felicidades! Has llenado todo el matraz</h1>
   <img src="assets/happy.png" alt="Gallo feliz en el centro" class="gallo-center" />
   <div class="congratulations-buttons">
-    <button [routerLink]="['/funciones']" routerLinkActive="router-link-active" >Clic para continuar</button>
-    <button (click)="reset()">Reiniciar Nivel</button>
+    <button class="boton" [routerLink]="['/funciones']" routerLinkActive="router-link-active" >Continuar</button>
+    <button class="boton" (click)="reset()">Reiniciar Nivel</button>
   </div>
 </div>

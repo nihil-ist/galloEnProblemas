@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 90vh;
     text-align: center;
     position: relative;
   }
@@ -18,7 +18,7 @@
   }
   
   .gallo-imagen {
-    width: 30vw;
+    width: 20vw;
   }
 
   /* .resultado {
@@ -65,11 +65,18 @@
   }
 
 h2 {
-    font-size: 2vw;
+    font-size: 2.5vw;
     color: #88a0d8;
-    -webkit-text-stroke: 0.08vw #07215e;
+    -webkit-text-stroke: 0.09vw #07215e;
 
 }  
+
+p {
+  font-size: 2vw;
+  color: white;
+  -webkit-text-stroke: 0.075vw #07215e;
+
+}
 
   .respuesta, .respuesta:active, .boton, .boton:active {
     background: none;
@@ -102,4 +109,44 @@ h2 {
   background-image: url('../../assets/buttons/buttonbackground.png');
     color: #07215e;
     cursor: default;
+}
+
+.boton-cerrar-dialogo {
+  position: fixed;
+  bottom: 2vw;
+  left: 2vw;
+  z-index: 1000; 
+}
+
+.boton-cerrar-dialogo, .boton-cerrar-dialogo:active {
+  background: none;
+  background-image: url('../../assets/buttons/buttonbackground.png');
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 15vw;
+  height: 4vw; 
+  border: none; 
+  padding: 10px;
+  color: #07215e;
+  font-size: 1vw;
+  text-align: center;
+  outline: none;
+
+}
+
+.boton-cerrar-dialogo:hover {
+  background-image: url('../../assets/buttons/buttonpressed.png');
+  
+}
+
+.boton-cerrar-dialogo:active {
+  background-image: url('../../assets/buttons/buttonbackground.png');
+  color: #07215e;
+}
+
+.boton-cerrar-dialogo:disabled:hover {
+background-image: url('../../assets/buttons/buttonbackground.png');
+  color: #07215e;
+  cursor: default;
 }

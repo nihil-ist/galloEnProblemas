@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule, RouterOutlet, NavigationEnd } from '@angular/router';
 import { MusicService } from './music.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { ButtonSoundService } from './button-sound.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,15 @@ export class AppComponent implements OnInit, OnDestroy{
   currentRoute: string = '';
   private routeSub: Subscription = new Subscription();
 
-  constructor(private musicService: MusicService, private router: Router, private route: ActivatedRoute) {}
+  private clickListener: () => void;
+
+  constructor(private musicService: MusicService, private router: Router, private route: ActivatedRoute, private buttonSoundService: ButtonSoundService, private renderer: Renderer2) {
+    this.clickListener = this.renderer.listen('document', 'click', (event) => {
+      if (event.target.tagName === 'BUTTON') {
+        this.buttonSoundService.playSound();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.routeSub = this.router.events.subscribe((event) => {
@@ -29,6 +38,9 @@ export class AppComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     if (this.routeSub) {
       this.routeSub.unsubscribe();
+    }
+    if (this.clickListener) {
+      this.clickListener();
     }
   }
 
@@ -52,4 +64,9 @@ export class AppComponent implements OnInit, OnDestroy{
   goToMenu(): void {
     this.router.navigate(['/menu']);
   }
+
+  playButtonSound(): void {
+    this.buttonSoundService.playSound();
+  }
+  
 }

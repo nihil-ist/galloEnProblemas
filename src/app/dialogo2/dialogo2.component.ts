@@ -16,6 +16,8 @@ export class Dialogo2Component {
   @Output() dialogoTerminado = new EventEmitter<void>();
 
   ngOnInit(): void {
+    document.addEventListener('keydown', this.handleKeydown.bind(this));
+
     const nombreGuardado = localStorage.getItem('nombreUsuario');
     if (nombreGuardado) {
       this.nombreUsuario = nombreGuardado;
@@ -38,6 +40,17 @@ export class Dialogo2Component {
         { personaje: 'sabio', mensaje: 'Acompáñame, en este ejemplo de Medicina. Un gallo tendrá una situación en particular y tú tendrás que ayudarlo tomando una decisión.' },
         { personaje: 'gallo', mensaje: 'Entendido, ¡Vamos a ello!' },
       ];
+    }
+  }
+
+  ngOnDestroy(): void {
+    document.removeEventListener('keydown', this.handleKeydown.bind(this));
+  }
+
+  handleKeydown(event: KeyboardEvent): void {
+    if (event.code === 'Space') {
+      event.preventDefault(); // Evita el desplazamiento de la página con la tecla de espacio
+      this.avanzarDialogo();
     }
   }
 

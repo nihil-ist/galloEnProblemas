@@ -5,7 +5,7 @@
 
     <div *ngIf="nombreGuardado && !mostrarNuevoInput">
       <h2>¿Quieres continuar como <strong>{{ nombreGuardado }}</strong> o ingresar otro nombre?</h2>
-      <button class="largeButton" (click)="empezarJuego()">Continuar como {{ nombreGuardado }}</button>
+      <button class="largeButton" (click)="continuarJuego()">Continuar como {{ nombreGuardado }}</button>
       <button class="largeButton" (click)="ingresarOtroNombre()">Ingresar otro nombre</button>
     </div>
   

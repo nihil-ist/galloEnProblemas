@@ -16,6 +16,8 @@ export class Dialogo3Component {
   @Output() dialogoTerminado = new EventEmitter<void>();
 
   ngOnInit(): void {
+    document.addEventListener('keydown', this.handleKeydown.bind(this));
+
     const nombreGuardado = localStorage.getItem('nombreUsuario');
     if (nombreGuardado) {
       this.nombreUsuario = nombreGuardado;
@@ -29,7 +31,8 @@ export class Dialogo3Component {
     { personaje: 'gallo', mensaje: '¡Sí! Pero si solo puedo echar un poco de líquido a la vez, ¿cómo puedo saber cuántas veces debo hacerlo?' },
     { personaje: 'sabio', mensaje: 'Ahí es donde los ciclos te ayudan. En programación, puedes usar un ciclo para repetir una acción hasta cumplir una condición.' },
     { personaje: 'gallo', mensaje: '¿Y qué tipo de ciclos puedo usar?' },
-    { personaje: 'sabio', mensaje: 'Existen dos tipos principales: el “for”, que usas cuando sabes exactamente cuántas veces repetir la acción, y el “while”, que se repite mientras algo siga siendo cierto.' },
+    { personaje: 'sabio', mensaje: 'Existen dos tipos principales: el “for”, que usas cuando sabes exactamente cuántas veces repetir la acción.' },
+    { personaje: 'sabio', mensaje: 'Y el “while”, que se repite mientras algo siga siendo cierto.' },
     { personaje: 'gallo', mensaje: '¿Entonces, el “for” sería como decir “llenar el matraz en 5 pasos” y el “while” sería como decir “sigue llenando mientras no esté lleno”?' },
     { personaje: 'sabio', mensaje: '¡Exactamente! Con el “for” controlas la cantidad de veces, y con el “while” solo te detienes cuando la condición cambia.' },
     { personaje: 'sabio', mensaje: 'En programación, eso te ahorra mucho trabajo. Es como un asistente que sigue tus instrucciones.' },
@@ -41,6 +44,17 @@ export class Dialogo3Component {
     { personaje: 'sabio', mensaje: '¡Exacto! Ahora te guiaré en un ejercicio. Iremos llenando un matraz poco a poco hasta que esté completo.' },
     { personaje: 'gallo', mensaje: '¡Perfecto! Estoy listo para poner en práctica estos ciclos.' }
     ];
+    }
+  }
+
+  ngOnDestroy(): void {
+    document.removeEventListener('keydown', this.handleKeydown.bind(this));
+  }
+
+  handleKeydown(event: KeyboardEvent): void {
+    if (event.code === 'Space') {
+      event.preventDefault(); // Evita el desplazamiento de la página con la tecla de espacio
+      this.avanzarDialogo();
     }
   }
 

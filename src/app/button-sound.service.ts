@@ -8,7 +8,7 @@ export class ButtonSoundService {
 
   constructor() {
     // Puedes configurar la ruta del sonido aquí
-    this.audio.src = 'assets/sounds/button-click.mp3';
+    this.audio.src = 'assets/sounds/button.mp3';
     this.audio.load();
   }
 

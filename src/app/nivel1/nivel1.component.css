@@ -14,6 +14,36 @@ body, html {
     flex-direction: column; /* Organiza todo en columnas */
     align-items: center; /* Centra todo horizontalmente */
   }
+
+  .gallo-contenedor {
+    position: relative;
+    margin: 20px 0;
+  }
+  
+  .gallo-imagen {
+    width: 20vw;
+  }
+
+  .congratulations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+    width: 100vw;  /* Ocupa el 100% del ancho de la ventana */
+    position: fixed; /* Mantiene el div en la pantalla, incluso al hacer scroll */
+    top: 0;
+    left: 0;
+    color: white; /* Color de texto en blanco para contraste */
+    text-align: center; /* Centra el texto dentro del div */
+    z-index: 1000; /* Asegura que esté en la parte superior */
+  }
+  
+  .gallo-center {
+    margin-top: 20px;
+    max-width: 200px;
+  }
+  
   
   /* Contenedor de imágenes */
   .image-container {
@@ -71,9 +101,10 @@ body, html {
 
   h1{ 
     font-size: 3vw;
-  }
+    color:white;
+    -webkit-text-stroke: 0.1vw #07215e;  }
   p{
-    font-size: 2.6vw;
+    font-size: 2vw;
     color: #88a0d8;
     -webkit-text-stroke: 0.08vw #07215e;
   }
@@ -81,3 +112,111 @@ body, html {
   .hearts {
     width: 5vw;
   }
+
+  .respuesta, .respuesta:active, .boton, .boton:active {
+    background: none;
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20vw;
+    height: 10vw; 
+    border: none; 
+    padding: 10px;
+    color: #07215e;
+    font-size: 1.8vw;
+    text-align: center;
+    outline: none;
+
+}
+
+.respuesta:hover, .boton:hover {
+    background-image: url('../../assets/buttons/buttonpressed.png');
+    
+}
+
+.respuesta:active, .boton:active {
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    color: #07215e;
+}
+
+.respuesta:disabled:hover, .boton:disabled:hover {
+  background-image: url('../../assets/buttons/buttonbackground.png');
+    color: #07215e;
+    cursor: default;
+}
+
+
+  .boton-cerrar-dialogo {
+    position: fixed;
+    bottom: 2vw;
+    left: 2vw;
+    z-index: 1000; 
+  }
+  
+  .boton-cerrar-dialogo, .boton-cerrar-dialogo:active {
+    background: none;
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 15vw;
+    height: 4vw; 
+    border: none; 
+    padding: 10px;
+    color: #07215e;
+    font-size: 1vw;
+    text-align: center;
+    outline: none;
+  
+  }
+  
+  .boton-cerrar-dialogo:hover {
+    background-image: url('../../assets/buttons/buttonpressed.png');
+    
+  }
+  
+  .boton-cerrar-dialogo:active {
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    color: #07215e;
+  }
+  
+  .boton-cerrar-dialogo:disabled:hover {
+  background-image: url('../../assets/buttons/buttonbackground.png');
+    color: #07215e;
+    cursor: default;
+  }
+
+  .main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Imagen del gallo a la izquierda */
+.gallo-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallo-image {
+    width: 20vw;
+}
+
+/* Contenedor de la zona de juego a la derecha */
+.game-area {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Centrando la zona de drop y las imágenes */
+.image-container, .drop-zones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

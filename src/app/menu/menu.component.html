@@ -8,12 +8,12 @@
 
 
         <div class="text-center mb-5">
-          <button class="btnJugar btnMenu" [routerLink]="['/juego']" routerLinkActive="router-link-active" ><img src="assets/buttons/jugar0.png" alt="jugar"></button>
+          <button class="btnJugar btnMenu" (click)="playButtonSound()" [routerLink]="['/juego']" routerLinkActive="router-link-active" ><img src="assets/buttons/jugar0.png" alt="jugar"></button>
         </div>
         <div class="text-center mb-5">
-          <button class="btnOpciones btnMenu" [routerLink]="['/opciones']" routerLinkActive="router-link-active" ><img src="assets/buttons/opciones0.png" alt="opciones"></button>
+          <button class="btnOpciones btnMenu" (click)="playButtonSound()" [routerLink]="['/opciones']" routerLinkActive="router-link-active" ><img src="assets/buttons/opciones0.png" alt="opciones"></button>
         </div>
         <div class="text-center">
-          <button class="btnCreditos btnMenu" [routerLink]="['/creditos']" routerLinkActive="router-link-active" ><img src="assets/buttons/creditos0.png" alt="creditos"></button>
+          <button class="btnCreditos btnMenu" (click)="playButtonSound()" [routerLink]="['/creditos']" routerLinkActive="router-link-active" ><img src="assets/buttons/creditos0.png" alt="creditos"></button>
         </div>
   </div>

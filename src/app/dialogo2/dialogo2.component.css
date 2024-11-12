@@ -73,8 +73,10 @@
     bottom: 20px; /* Espaciado desde el fondo */
     left: 50%; /* Centrar horizontalmente */
     transform: translateX(-50%); /* Ajustar el centro */
-    color: black; /* Color del texto */
-    opacity: 0.6;
+    color: white; /* Color del texto */
+    -webkit-text-stroke: 0.05vw black;
+
+    opacity: 1;
     padding: 10px 20px; /* Espaciado interno */
     border-radius: 5px; /* Esquinas redondeadas */
     font-size: 2vw; /* Tamaño de la fuente */
