@@ -13,16 +13,15 @@ import { AudioService } from '../audio.service';
 })
 export class Nivel1Component {
   images = [
-    { src: 'assets/0.png', id: '1', container: '', on: false },
-    { src: 'assets/1.png', id: '2', container: '', on: false },
-    { src: 'assets/2.png', id: '3', container: '', on: false }
+    { src: 'assets/0.png', id: 'img1', container: 'container1', on: false },
+    { src: 'assets/1.png', id: 'img2', container: 'container2', on: false },
+    { src: 'assets/2.png', id: 'img3', container: 'container3', on: false }
   ];
   message: string = '';
   vidas: number = 3;
   progress: number = 0;
   contenedores: number[] = [1, 2, 3];
   randomizedImages: any[] = [];
-  randomizedContainers: number[] = [];
   win: boolean = false;
   galloImagen: string = 'assets/normal.png';
   mostrarDialogo: boolean = true;
@@ -37,28 +36,21 @@ export class Nivel1Component {
 
   randomizeOrder() {
     this.randomizedImages = [...this.images].sort(() => Math.random() - 0.5);
-    this.randomizedContainers = [...this.contenedores].sort(() => Math.random() - 0.5);
-    console.log("Orden de imágenes:", this.randomizedImages.map(img => img.src));
-    console.log("Orden de contenedores:", this.randomizedContainers);
   }
 
-  setValues() {
-    for (let i = 0; i < this.randomizedImages.length; i++) {
-      this.randomizedImages[i].container = `container${this.contenedores[i]}`;
-    }
-  }
+
 
   reset() {
     this.vidas = 3;
     this.progress = 0;
     this.win = false;
     this.message = '';
-    this.images.forEach(img => {
-      img.on = false;
-      img.container = '';
-    });
+    this.images = [
+      { src: 'assets/0.png', id: 'img1', container: 'container1', on: false },
+      { src: 'assets/1.png', id: 'img2', container: 'container2', on: false },
+      { src: 'assets/2.png', id: 'img3', container: 'container3', on: false }
+    ];
     this.randomizeOrder();
-    this.setValues();
   }
 
   onDragStart(event: DragEvent, imageId: string) {

@@ -27,17 +27,15 @@
                       />
                   </div>
               </div>
-  
+
               <div class="drop-zones" *ngIf="vidas !== 0 && !win">
-                  <div
-                      *ngFor="let container of randomizedContainers"
-                      class="drop-zone"
-                      [attr.id]="'container' + container"
-                      (drop)="onDrop($event, 'container' + container)"
-                      (dragover)="onDragOver($event)"
-                      [ngStyle]="{'background-image': 'url(assets/box' + container + '.png)'}"
-                  >
-                  </div>
+                <div *ngFor="let container of [1, 2, 3]" 
+                     class="drop-zone"
+                     [attr.id]="'container' + container"
+                     (drop)="onDrop($event, 'container' + container)"
+                     (dragover)="onDragOver($event)"
+                     [ngStyle]="{'background-image': 'url(assets/box' + container + '.png)'}">
+                </div>
               </div>
           </div>
 
