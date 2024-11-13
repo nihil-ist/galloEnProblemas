@@ -50,6 +50,9 @@ continuarJuego(): void {
     case "4":
       this.router.navigate(['/funciones']);
       break;
+    case "5":
+      this.router.navigate(['/fine']);
+      break;
     default:
       this.router.navigate(['/variables']);
       break;

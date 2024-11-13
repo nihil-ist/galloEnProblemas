@@ -19,6 +19,6 @@ export const routes: Routes = [
     {path: 'funciones', component: NivelFuncionesComponent},
     {path: 'ciclos', component: Nivel3Component},
     {path: 'variables', component: Nivel1Component},
-    {path: 'fin', component: DialogoFinalComponent},
+    {path: 'fine', component: DialogoFinalComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'menu'}
 ];

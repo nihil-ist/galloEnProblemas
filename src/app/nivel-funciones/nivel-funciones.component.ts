@@ -15,14 +15,14 @@ export class NivelFuncionesComponent {
   preguntas = [
     { texto: '¿Prefieres la mañana o la noche?', respuestaIzquierda: 'Mañana', respuestaDerecha: 'Noche' },
     { texto: '¿Te gusta trabajar solo o en equipo?', respuestaIzquierda: 'Solo', respuestaDerecha: 'Equipo' },
-    // { texto: '¿Te sientes cansado después de estar con muchas personas?', respuestaIzquierda: 'Sí', respuestaDerecha: 'No' },
-    // { texto: '¿Te gusta participar en actividades sociales?', respuestaIzquierda: 'A veces', respuestaDerecha: 'Siempre' },
-    // { texto: '¿Prefieres pasar tu tiempo libre en casa o salir?', respuestaIzquierda: 'En casa', respuestaDerecha: 'Salir' },
-    // { texto: '¿Eres más reservado al conocer gente nueva?', respuestaIzquierda: 'Sí', respuestaDerecha: 'No' },
-    // { texto: '¿Te sientes más cómodo hablando en grupos pequeños?', respuestaIzquierda: 'Sí', respuestaDerecha: 'No' },
-    // { texto: '¿Prefieres leer un libro o ir a una fiesta?', respuestaIzquierda: 'Leer un libro', respuestaDerecha: 'Ir a una fiesta' },
-    // { texto: '¿Disfrutas de la conversación casual con extraños?', respuestaIzquierda: 'No', respuestaDerecha: 'Sí' },
-    // { texto: '¿Te gusta ser el centro de atención?', respuestaIzquierda: 'No', respuestaDerecha: 'Sí' }
+    { texto: '¿Te sientes cansado después de estar con muchas personas?', respuestaIzquierda: 'Sí', respuestaDerecha: 'No' },
+    { texto: '¿Te gusta participar en actividades sociales?', respuestaIzquierda: 'A veces', respuestaDerecha: 'Siempre' },
+    { texto: '¿Prefieres pasar tu tiempo libre en casa o salir?', respuestaIzquierda: 'En casa', respuestaDerecha: 'Salir' },
+    { texto: '¿Eres más reservado al conocer gente nueva?', respuestaIzquierda: 'Sí', respuestaDerecha: 'No' },
+    { texto: '¿Te sientes más cómodo hablando en grupos pequeños?', respuestaIzquierda: 'Sí', respuestaDerecha: 'No' },
+    { texto: '¿Prefieres leer un libro o ir a una fiesta?', respuestaIzquierda: 'Leer un libro', respuestaDerecha: 'Ir a una fiesta' },
+    { texto: '¿Disfrutas de la conversación casual con extraños?', respuestaIzquierda: 'No', respuestaDerecha: 'Sí' },
+    { texto: '¿Te gusta ser el centro de atención?', respuestaIzquierda: 'No', respuestaDerecha: 'Sí' }
   ];
   
   

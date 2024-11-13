@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialogo-final',
@@ -9,11 +10,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dialogo-final.component.css'
 })
 export class DialogoFinalComponent {
+  mostrarDialogo = true;
   nombreUsuario: string = ''; 
   dialogos: { personaje: string; mensaje: string }[] = []; 
   indiceDialogo: number = 0;
 
   @Output() dialogoTerminado = new EventEmitter<void>();
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     document.addEventListener('keydown', this.handleKeydown.bind(this));
@@ -26,20 +30,19 @@ export class DialogoFinalComponent {
       this.dialogos = [
         { personaje: 'gallo', mensaje: '¡Hola, viejo Pablo! ¡He completado todos los retos! Me siento listo para enfrentar cualquier cosa en el futuro.' },
         { personaje: 'sabio', mensaje: `¡Increíble, gallo ${this.nombreUsuario}! Has hecho un gran trabajo` },
-        { personaje: 'sabio', mensaje: `Has aprendido conceptos fundamentales para cualquier carrera, en especial tecnológica` },
+        { personaje: 'sabio', mensaje: `Has aprendido conceptos fundamentales para cualquier carrera, en especial tecnológica.` },
         { personaje: 'gallo', mensaje: '¡Sí! Ahora entiendo mucho más sobre programación, y gracias a ti, he aprendido a aplicarlo a diferentes situaciones.' },
-        { personaje: 'sabio', mensaje: 'He de admitir que eres igual de bueno que tu padre, Guillermo. Llegarás muy lejos.' },
+        { personaje: 'sabio', mensaje: 'He de admitir que eres igual de bueno que tu padre Guido. Sé que llegarás muy lejos.' },
         { personaje: 'sabio', mensaje: 'La programación es solo una herramienta; lo importante es cómo la usas para resolver problemas y crear algo útil.' },
         { personaje: 'gallo', mensaje: 'Lo recordaré siempre, Pablo. ¿Sabe? Creo que ya estoy listo para elegir mi carrera. ¡Quiero estudiar algo relacionado con tecnología!' },
         { personaje: 'sabio', mensaje: `¡Esa es una excelente decisión, ${this.nombreUsuario}! No importa qué camino elijas, lo importante es que lo hagas con pasión y dedicación.` },
-        { personaje: 'sabio', mensaje: 'Y recuerda, la programación no es solo una profesión, es una forma de pensar y resolver problemas que puedes aplicar en cualquier ámbito de la vida.' },
+        { personaje: 'sabio', mensaje: 'Y recuerda, la programación no es solo una profesión.' },
+        { personaje: 'sabio', mensaje: 'Es una forma de pensar y resolver problemas que puedes aplicar en cualquier ámbito de la vida.' },
         { personaje: 'gallo', mensaje: '¡Gracias por todo, viejo Pablo! Nunca olvidaré lo que me enseñaste. ¡Eres el mentor que siempre quise tener!' },
         { personaje: 'sabio', mensaje: 'El placer ha sido mío, joven gallo. Y recuerda, siempre que necesites ayuda, solo busca en tu corazón el deseo de aprender y experimentar.' },
         { personaje: 'gallo', mensaje: '¡Hasta pronto, Pablo! ¡Voy a conquistar el mundo de la programación!' },
         { personaje: 'sabio', mensaje: '¡Buena suerte en tu viaje, gallo valiente! Sé que lograrás grandes cosas.' },
-        { personaje: 'gallo', mensaje: '¡Hasta pronto, Pablo! ¡Voy a conquistar el mundo de la programación!' },
-        { personaje: 'sabio', mensaje: '¡Buena suerte en tu viaje, gallo valiente! Sé que lograrás grandes cosas.' },
-    ];
+      ];
     }
   }
 
@@ -49,7 +52,7 @@ export class DialogoFinalComponent {
 
   handleKeydown(event: KeyboardEvent): void {
     if (event.code === 'Space') {
-      event.preventDefault(); // Evita el desplazamiento de la página con la tecla de espacio
+      event.preventDefault();
       this.avanzarDialogo();
     }
   }
@@ -63,10 +66,17 @@ export class DialogoFinalComponent {
   }
 
   terminarDialogo(): void {
-    this.dialogoTerminado.emit(); 
+    this.mostrarDialogo = false;
   }
 
   get mensajeActual() {
     return this.dialogos[this.indiceDialogo];
   }
+
+  terminarJuego(): void {
+    localStorage.removeItem('currentLevel');
+    localStorage.removeItem('nombreUsuario');
+    this.router.navigate(['/menu']);
+  }
+
 }
