@@ -1,0 +1,29 @@
+<div *ngIf="mostrarDialogo" class="dialogo-contenedor" (click)="avanzarDialogo()">
+
+    <button *ngIf="mostrarDialogo" class="boton-cerrar-dialogo" (click)="mostrarDialogo = false">Saltar diálogo</button>
+
+    <!-- Contenedor del personaje Gallo y su burbuja -->
+    <div class="personaje-container">
+        <div class="burbuja" *ngIf="mensajeActual.personaje === 'gallo'">{{ mensajeActual.mensaje }}</div>
+        <img src="assets/normal.png" alt="Gallo" class="personaje personaje-gallo">
+    </div>
+
+    <!-- Contenedor del personaje Sabio y su burbuja -->
+    <div class="personaje-container">
+        <div class="burbuja" *ngIf="mensajeActual.personaje === 'sabio'">{{ mensajeActual.mensaje }}</div>
+        <img src="assets/sabio.png" alt="Sabio" class="personaje personaje-sabio">
+    </div>
+
+    <div class="texto-continuar">Presiona el espacio o da clic para continuar...</div>
+
+</div>
+
+
+<div *ngIf="!mostrarDialogo" class="text-center full-screen">
+    <h1>¡Felicidades! ¡Has completado el juego!</h1>
+    <img src="assets/happy.png" alt="Gallo" class="img-fluid gallo-imagen">
+    <div class="congratulations-buttons mt-5">
+        <button (click)="terminarJuego()" class="boton">Terminar Juego</button>
+    </div>
+</div>
+

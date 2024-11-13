@@ -1,0 +1,210 @@
+.dialogo-contenedor {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 1vw 20px;
+    box-sizing: border-box;
+    cursor: pointer; 
+}
+
+
+.personaje-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personaje {
+    width: 20vw;
+}
+
+.personaje-gallo {
+    transform: scaleX(-1);
+}
+
+.burbuja {
+    position: absolute;
+    bottom: 100%; /* Posiciona la burbuja justo encima del personaje */
+    transform: translateY(-10px); /* Ajusta el espacio entre la burbuja y el personaje */
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 1vw;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* white-space: nowrap; Evita que el texto se desborde */
+}
+
+/* Triángulo de la burbuja */
+.burbuja::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Coloca el triángulo apuntando hacia abajo */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: #f1f1f1 transparent transparent transparent;
+}
+
+/* Botón de avanzar diálogo */
+.boton-avanzar {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.texto-continuar {
+    position: absolute; /* Posicionamiento absoluto */
+    bottom: 20px; /* Espaciado desde el fondo */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajustar el centro */
+    color: white; /* Color del texto */
+    -webkit-text-stroke: 0.05vw black;
+
+    opacity: 1;
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    font-size: 2vw; /* Tamaño de la fuente */
+    text-align: center; /* Alinear texto al centro */
+}
+
+
+/* nivel-condicionales.component.css */
+.vidas {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  
+.paciente-imagen {
+  width: 20vw;
+}
+  
+.gallo-imagen {
+    width: 20vw;
+    transition: opacity 0.3s ease;
+  }
+
+  h1{ 
+    font-size: 3vw;
+    color:white;
+    -webkit-text-stroke: 0.1vw #07215e;  }
+  p{
+    font-size: 2.5vw;
+    color: #88a0d8;
+    -webkit-text-stroke: 0.08vw #07215e;
+  }
+
+  .hearts {
+    width: 5vw;
+  }
+
+  button, button:active {
+    background: none;
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 18vw;
+    height: 5.5vw; 
+    border: none; 
+    padding: 10px;
+    color: #07215e;
+    font-size: 1.8vw;
+    text-align: center;
+    outline: none;
+
+}
+
+button:hover {
+    background-image: url('../../assets/buttons/buttonpressed.png');
+    
+}
+
+button:active {
+    background-image: url('../../assets/buttons/buttonbackground.png');
+    color: #07215e;
+}
+
+button:disabled:hover {
+  background-image: url('../../assets/buttons/buttonbackground.png');
+    color: #07215e;
+}
+
+.congratulations-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.congratulations-buttons button {
+  font-size: 1.5vw;
+}
+
+
+
+.boton-cerrar-dialogo {
+  position: fixed;
+  bottom: 2vw;
+  left: 2vw;
+  z-index: 1000; 
+}
+
+.boton-cerrar-dialogo, .boton-cerrar-dialogo:active {
+  background: none;
+  background-image: url('../../assets/buttons/buttonbackground.png');
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 15vw;
+  height: 4vw; 
+  border: none; 
+  padding: 10px;
+  color: #07215e;
+  font-size: 1vw;
+  text-align: center;
+  outline: none;
+
+}
+
+.boton-cerrar-dialogo:hover {
+  background-image: url('../../assets/buttons/buttonpressed.png');
+  
+}
+
+.boton-cerrar-dialogo:active {
+  background-image: url('../../assets/buttons/buttonbackground.png');
+  color: #07215e;
+}
+
+.boton-cerrar-dialogo:disabled:hover {
+background-image: url('../../assets/buttons/buttonbackground.png');
+  color: #07215e;
+  cursor: default;
+}
+
+.full-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+    width: 100%;   /* Ocupa el 100% del ancho */
+    text-align: center;
+}
